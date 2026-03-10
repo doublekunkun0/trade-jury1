@@ -1,0 +1,340 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Trade Jury 长图</title>
+    <style>
+      :root {
+        --bg: #0a0a0c;
+        --panel: rgba(255, 255, 255, 0.06);
+        --panel-strong: rgba(255, 255, 255, 0.1);
+        --text: #f5f5f2;
+        --muted: rgba(255, 255, 255, 0.72);
+        --soft: rgba(255, 255, 255, 0.5);
+        --line: rgba(255, 255, 255, 0.12);
+        --accent: #f3ba2f;
+        --accent-soft: rgba(243, 186, 47, 0.18);
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html,
+      body {
+        margin: 0;
+        padding: 0;
+        background:
+          radial-gradient(circle at 12% 14%, rgba(243, 186, 47, 0.18), transparent 22%),
+          radial-gradient(circle at 88% 12%, rgba(255, 255, 255, 0.11), transparent 18%),
+          radial-gradient(circle at 80% 82%, rgba(243, 186, 47, 0.08), transparent 20%),
+          linear-gradient(180deg, #0f1013 0%, #09090b 100%);
+        color: var(--text);
+        font-family:
+          "PingFang SC",
+          "Hiragino Sans GB",
+          "Microsoft YaHei",
+          "Noto Sans CJK SC",
+          sans-serif;
+      }
+
+      body {
+        padding: 36px;
+      }
+
+      #poster {
+        width: 1200px;
+        margin: 0 auto;
+        padding: 56px;
+        border-radius: 36px;
+        background:
+          linear-gradient(180deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.03)),
+          rgba(5, 5, 7, 0.88);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        box-shadow:
+          0 40px 80px rgba(0, 0, 0, 0.34),
+          inset 0 1px 0 rgba(255, 255, 255, 0.06);
+      }
+
+      .hero {
+        padding-bottom: 40px;
+        border-bottom: 1px solid var(--line);
+      }
+
+      .eyebrow {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        padding: 10px 16px;
+        border-radius: 999px;
+        background: var(--accent-soft);
+        color: #ffe3a1;
+        font-size: 16px;
+        font-weight: 600;
+        letter-spacing: 0.02em;
+      }
+
+      h1 {
+        margin: 22px 0 12px;
+        font-size: 76px;
+        line-height: 0.98;
+        letter-spacing: -0.05em;
+      }
+
+      .subtitle {
+        max-width: 920px;
+        margin: 0;
+        color: var(--muted);
+        font-size: 28px;
+        line-height: 1.5;
+      }
+
+      .meta {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 18px;
+        margin-top: 30px;
+      }
+
+      .meta-card {
+        padding: 20px 22px;
+        border-radius: 22px;
+        background: var(--panel);
+        border: 1px solid var(--line);
+      }
+
+      .meta-label {
+        margin: 0 0 10px;
+        color: var(--soft);
+        font-size: 15px;
+      }
+
+      .meta-value {
+        margin: 0;
+        font-size: 22px;
+        line-height: 1.4;
+        font-weight: 600;
+      }
+
+      .section {
+        padding-top: 34px;
+      }
+
+      .section-title {
+        margin: 0 0 18px;
+        font-size: 34px;
+        line-height: 1.1;
+        letter-spacing: -0.03em;
+      }
+
+      .section-body {
+        margin: 0;
+        color: var(--muted);
+        font-size: 24px;
+        line-height: 1.82;
+      }
+
+      .section-body strong {
+        color: var(--text);
+        font-weight: 700;
+      }
+
+      .grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 18px;
+        margin-top: 20px;
+      }
+
+      .module {
+        padding: 24px;
+        border-radius: 24px;
+        background: var(--panel);
+        border: 1px solid var(--line);
+      }
+
+      .module h3 {
+        margin: 0 0 14px;
+        font-size: 25px;
+        line-height: 1.25;
+      }
+
+      .module p {
+        margin: 0;
+        color: var(--muted);
+        font-size: 20px;
+        line-height: 1.76;
+      }
+
+      .full {
+        grid-column: 1 / -1;
+      }
+
+      .quote-box {
+        margin-top: 24px;
+        padding: 28px 30px;
+        border-radius: 28px;
+        background:
+          linear-gradient(135deg, rgba(243, 186, 47, 0.16), rgba(255, 255, 255, 0.05)),
+          var(--panel-strong);
+        border: 1px solid rgba(243, 186, 47, 0.28);
+      }
+
+      .quote-box p {
+        margin: 0;
+        font-size: 30px;
+        line-height: 1.7;
+        color: #fff3cf;
+      }
+
+      .footer {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-end;
+        gap: 24px;
+        margin-top: 36px;
+        padding-top: 28px;
+        border-top: 1px solid var(--line);
+      }
+
+      .footer-main {
+        font-size: 34px;
+        line-height: 1.35;
+        font-weight: 700;
+        letter-spacing: -0.03em;
+      }
+
+      .footer-side {
+        color: var(--soft);
+        font-size: 18px;
+        line-height: 1.7;
+        text-align: right;
+      }
+    </style>
+  </head>
+  <body>
+    <main id="poster">
+      <section class="hero">
+        <div class="eyebrow">OKX OnchainOS × OpenClaw</div>
+        <h1>Trade Jury</h1>
+        <p class="subtitle">
+          一个基于 OKX OnchainOS 的链上 AI 交易决策系统
+          它不是直接帮用户下单
+          而是在交易前先获取实时 quote
+          再由多个 AI Judge 完成结构化裁决
+        </p>
+        <div class="meta">
+          <article class="meta-card">
+            <p class="meta-label">Claw 型号</p>
+            <p class="meta-value">OpenClaw 2026.3.2</p>
+          </article>
+          <article class="meta-card">
+            <p class="meta-label">大模型</p>
+            <p class="meta-value">openai-codex / gpt-5.3-codex</p>
+          </article>
+          <article class="meta-card">
+            <p class="meta-label">应用场景</p>
+            <p class="meta-value">链上交易判断 风险拦截 执行前裁决</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section">
+        <h2 class="section-title">产品定位</h2>
+        <p class="section-body">
+          多数链上交易工具解决的是<strong>怎么成交</strong>
+          但真实交易里最贵的错误
+          往往不是不会操作
+          而是在<strong>不该做的时候做了</strong>
+          <br />
+          Trade Jury 想解决的就是这一步
+          它先拿真实报价
+          再从趋势 拥挤度 风险和执行质量四个维度做判断
+          最终只输出<strong>通过执行 条件通过 拒绝执行</strong>三种明确结果
+        </p>
+      </section>
+
+      <section class="section">
+        <h2 class="section-title">三个模块</h2>
+        <div class="grid">
+          <article class="module">
+            <h3>1 实时报价引擎</h3>
+            <p>
+              用户输入一句自然语言交易意图后
+              系统先调用 OnchainOS 获取实时 quote 到手额 成本和路径结构
+              先确认现在能不能成交 值不值得成交
+            </p>
+          </article>
+          <article class="module">
+            <h3>2 交易陪审团</h3>
+            <p>
+              由 Momentum Judge Contrarian Judge Risk Judge Execution Judge
+              分别完成判断
+              保留多角色意见
+              而不是只给一个模糊结论
+            </p>
+          </article>
+          <article class="module full">
+            <h3>3 风控与日志面板</h3>
+            <p>
+              系统会统一输出裁决 建议仓位 执行建议和听证记录
+              所有关键判断都留痕
+              让用户可以看到这笔交易为什么能做 为什么不能做 为什么只能小仓位试单
+            </p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section">
+        <h2 class="section-title">适合解决的问题</h2>
+        <p class="section-body">
+          例如 FOMO 追高买在情绪顶点
+          路径能成交但到手额太差
+          风险偏好和交易标的不匹配
+          本该防守却在高波动资产上错误加仓
+          <br />
+          Trade Jury 的重点不是让 AI 替用户冲
+          而是让 AI 在交易前
+          先把这些高成本错误挡在前面
+        </p>
+      </section>
+
+      <section class="section">
+        <h2 class="section-title">为什么它更像一个真正的 Agent</h2>
+        <p class="section-body">
+          它不是只会说买或卖
+          也不是单纯做路由优化
+          而是把
+          <strong>用户意图 → 实时报价 → 多角色听证 → 最终裁决 → 执行建议</strong>
+          连成一个完整闭环
+          <br />
+          用户拿到的不是一句空话
+          而是一个可解释 可复盘 可执行的交易判断结果
+        </p>
+
+        <div class="quote-box">
+          <p>
+            Trade Jury 解决的不是怎么更快成交
+            而是哪些交易根本不该成交
+          </p>
+        </div>
+      </section>
+
+      <footer class="footer">
+        <div class="footer-main">
+          先拿报价
+          <br />
+          再做判断
+        </div>
+        <div class="footer-side">
+          OKX OnchainOS
+          <br />
+          OpenClaw
+          <br />
+          Trade Jury
+        </div>
+      </footer>
+    </main>
+  </body>
+</html>

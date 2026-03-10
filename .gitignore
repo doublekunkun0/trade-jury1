@@ -4,3 +4,14 @@
 .demo-server.pid
 .venv-openclaw-tg/
 node_modules/
+.chrome-automation/
+.chrome-automation2/
+.chrome-automation*.log
+.click.swift
+.git-keys/
+.github-upload-stage/
+codex-*.png
+current-main-chrome-github.png
+playwright-*.png
+playwright-*.txt
+upload-page-*.png
