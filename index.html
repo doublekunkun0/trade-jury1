@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Trade Jury | 实时报价与交易裁决</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Noto+Sans+SC:wght@400;500;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="brand">
+        <div class="brand-mark" aria-hidden="true">
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+        <div class="brand-copy">
+          <strong>Trade Jury</strong>
+          <span>实时报价 · 模拟裁决</span>
+        </div>
+      </div>
+
+      <nav class="site-nav">
+        <a href="#code-showcase">代码</a>
+        <a href="#features">特点</a>
+        <a href="#scenarios">场景</a>
+        <a href="#demo">演示</a>
+        <a href="#faq">FAQ</a>
+      </nav>
+
+      <a class="header-cta" href="#demo">查看演示</a>
+    </header>
+
+    <main class="page-shell">
+      <section class="hero reveal" id="overview">
+        <div class="hero-visual" aria-hidden="true">
+          <div class="hero-orb"></div>
+          <div class="hero-ring hero-ring-one"></div>
+          <div class="hero-ring hero-ring-two"></div>
+          <div class="hero-ring hero-ring-three"></div>
+          <div class="hero-chip hero-chip-one">LIVE QUOTE</div>
+          <div class="hero-chip hero-chip-two">RISK JURY</div>
+          <div class="hero-chip hero-chip-three">LOCAL FIRST</div>
+          <div class="hero-pulse"></div>
+        </div>
+        <p class="eyebrow">本地优先交易工作流</p>
+        <h1>先拿报价，再做判断</h1>
+        <p class="hero-lead">
+          先给出路径、到手额和成本，再给出裁决与仓位
+        </p>
+
+        <div class="hero-actions">
+          <a class="primary-cta" href="#scenarios">查看场景</a>
+          <a class="secondary-cta" href="#demo">实时演示</a>
+        </div>
+
+        <div class="hero-badges">
+          <span>实时报价</span>
+          <span>模拟裁决</span>
+          <span>本地优先</span>
+          <span>风险先行</span>
+        </div>
+      </section>
+
+      <section class="code-showcase reveal" id="code-showcase">
+        <div class="section-head section-head-light">
+          <p class="eyebrow">代码演示</p>
+          <h2>把交易判断做成一条清晰工作流</h2>
+        </div>
+
+        <div class="terminal-shell">
+          <div class="terminal-top">
+            <span>Trade Jury 运行视图</span>
+            <span>base / quote / verdict</span>
+          </div>
+
+          <div class="terminal-screen">
+            <div class="terminal-columns">
+              <div class="terminal-type">
+                <div class="terminal-line row-1" style="--chars: 54; --delay: 0.35s;">
+                  <span>$</span>
+                  <code>trade-jury quote --from ETH --to USDC --amount 0.5 --chain base</code>
+                </div>
+                <div class="terminal-line output row-2" style="--chars: 48; --delay: 2.7s;">
+                  <span>&gt;</span>
+                  <code>route="OKX Aggregator" receive="1,024.38 USDC"</code>
+                </div>
+                <div class="terminal-line dim row-3" style="--chars: 42; --delay: 4.8s;">
+                  <span>#</span>
+                  <code>impact="-0.81%" provider="okx-fallback"</code>
+                </div>
+                <div class="terminal-line row-4" style="--chars: 46; --delay: 6.5s;">
+                  <span>$</span>
+                  <code>trade-jury inspect --asset BRETT --risk balanced</code>
+                </div>
+                <div class="terminal-line output row-5" style="--chars: 44; --delay: 8.6s;">
+                  <span>&gt;</span>
+                  <code>verdict="conditional" size="28%" mode="split"</code>
+                </div>
+                <div class="terminal-line row-6" style="--chars: 56; --delay: 10.6s;">
+                  <span>$</span>
+                  <code>trade-jury rotate --from BRETT --to USDC --take-profit</code>
+                </div>
+                <div class="terminal-line output row-7" style="--chars: 50; --delay: 12.9s;">
+                  <span>&gt;</span>
+                  <code>action="lock-gains" reason="lower drag, lower risk"</code>
+                </div>
+              </div>
+
+              <aside class="terminal-glass">
+                <div class="terminal-glass-head">
+                  <span>SESSION SNAPSHOT</span>
+                  <span>live</span>
+                </div>
+
+                <div class="terminal-glass-grid">
+                  <article>
+                    <span>Source</span>
+                    <strong>OKX / Fallback</strong>
+                  </article>
+                  <article>
+                    <span>Verdict</span>
+                    <strong>Conditional</strong>
+                  </article>
+                  <article>
+                    <span>Position</span>
+                    <strong>28%</strong>
+                  </article>
+                  <article>
+                    <span>Risk</span>
+                    <strong>Balanced</strong>
+                  </article>
+                </div>
+
+                <div class="terminal-glass-footer">
+                  <span>quote-first</span>
+                  <span>read-only</span>
+                </div>
+              </aside>
+            </div>
+          </div>
+
+          <div class="terminal-footer">
+            <span>先报价</span>
+            <span>只读模拟</span>
+            <span>风险优先</span>
+            <span>本地优先</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="surface-section reveal" id="features">
+        <div class="section-head">
+          <p class="eyebrow">产品特点</p>
+          <h2>四个核心特点</h2>
+          <p class="section-note">把判断拆开，结果更清楚</p>
+        </div>
+
+        <div class="feature-grid">
+          <article class="feature-card">
+            <div class="feature-side">
+              <p class="feature-kicker">01</p>
+              <span>Quote-first</span>
+            </div>
+            <div class="feature-main">
+              <h3>先看真实条件</h3>
+              <p>路径、到手额和成本先出来</p>
+            </div>
+            <div class="feature-tail">路径 / 到手额 / 成本</div>
+          </article>
+
+          <article class="feature-card">
+            <div class="feature-side">
+              <p class="feature-kicker">02</p>
+              <span>Verdict</span>
+            </div>
+            <div class="feature-main">
+              <h3>给出明确裁决</h3>
+              <p>通过、附条件或拒绝执行</p>
+            </div>
+            <div class="feature-tail">裁决 / 信心 / 仓位</div>
+          </article>
+
+          <article class="feature-card">
+            <div class="feature-side">
+              <p class="feature-kicker">03</p>
+              <span>Local-first</span>
+            </div>
+            <div class="feature-main">
+              <h3>保留本地工作方式</h3>
+              <p>更适合接终端、脚本和自己的环境</p>
+            </div>
+            <div class="feature-tail">本地配置 / 本地密钥</div>
+          </article>
+
+          <article class="feature-card">
+            <div class="feature-side">
+              <p class="feature-kicker">04</p>
+              <span>Readable</span>
+            </div>
+            <div class="feature-main">
+              <h3>把结果拆开显示</h3>
+              <p>证据、意见和建议仓位分别展示</p>
+            </div>
+            <div class="feature-tail">证据 / 意见 / 建议</div>
+          </article>
+        </div>
+      </section>
+
+      <section class="surface-section reveal" id="scenarios">
+        <div class="section-head">
+          <p class="eyebrow">场景应用</p>
+          <h2>四个常用场景</h2>
+          <p class="section-note">点击场景会载入下面的实时演示</p>
+        </div>
+
+        <div class="app-grid">
+          <article class="app-card active" data-preset-id="meme-chase">
+            <div class="app-side">
+              <span class="app-tag">高波动过滤</span>
+              <span class="app-hint">点击载入</span>
+            </div>
+            <h3>追热门代币前，先过一层风险判断</h3>
+            <p>适合情绪币和短线冲动入场前</p>
+          </article>
+
+          <article class="app-card" data-preset-id="defense-rotate">
+            <div class="app-side">
+              <span class="app-tag">防守换仓</span>
+              <span class="app-hint">点击载入</span>
+            </div>
+            <h3>从波动资产切回稳定资产</h3>
+            <p>适合行情转弱或需要保护利润时</p>
+          </article>
+
+          <article class="app-card" data-preset-id="dip-buy">
+            <div class="app-side">
+              <span class="app-tag">分批建仓</span>
+              <span class="app-hint">点击载入</span>
+            </div>
+            <h3>先用小仓位试单，再决定后续动作</h3>
+            <p>适合回调参与和流动性优先策略</p>
+          </article>
+
+          <article class="app-card" data-preset-id="profit-lock">
+            <div class="app-side">
+              <span class="app-tag">获利落袋</span>
+              <span class="app-hint">点击载入</span>
+            </div>
+            <h3>盈利后换仓离场，先看拖拽和冲击</h3>
+            <p>适合从高波动目标切回 USDC</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="surface-section demo-section reveal" id="demo">
+        <div class="section-head">
+          <p class="eyebrow">实时演示</p>
+          <h2>实时判断面板</h2>
+          <p class="section-note">输入意图后，查看报价、裁决和建议仓位</p>
+        </div>
+
+        <div class="workspace-shell">
+          <aside class="workspace-sidebar">
+            <div class="sidebar-head">
+              <p class="eyebrow">控制台</p>
+              <h2>输入一句话，开始判断</h2>
+              <p class="sidebar-copy">设置方向、金额和风险模式</p>
+            </div>
+
+            <div class="preset-wrap">
+              <span class="field-label">快捷场景</span>
+              <div class="scenario-buttons" id="scenario-buttons"></div>
+            </div>
+
+            <div class="hearing-console">
+              <label class="sr-only" for="input-intent">交易意图</label>
+              <textarea
+                id="input-intent"
+                placeholder="例如：把 0.5 ETH 换成 USDC，优先减少波动"
+              ></textarea>
+
+              <div class="trade-controls">
+                <div class="field-group">
+                  <span class="field-label">金额</span>
+                  <input id="input-amount" type="number" min="0" step="0.0001" />
+                </div>
+                <div class="field-group">
+                  <span class="field-label">卖出</span>
+                  <select id="input-from-token">
+                    <option value="ETH">ETH</option>
+                    <option value="USDC">USDC</option>
+                    <option value="AERO">AERO</option>
+                    <option value="BRETT">BRETT</option>
+                  </select>
+                </div>
+                <div class="field-group">
+                  <span class="field-label">买入</span>
+                  <select id="input-to-token">
+                    <option value="BRETT">BRETT</option>
+                    <option value="USDC">USDC</option>
+                    <option value="AERO">AERO</option>
+                    <option value="ETH">ETH</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="console-actions">
+                <div class="field-group">
+                  <span class="field-label">风险模式</span>
+                  <select id="input-risk">
+                    <option value="conservative">保守</option>
+                    <option value="balanced" selected>平衡</option>
+                    <option value="aggressive">激进</option>
+                  </select>
+                </div>
+                <button id="convene-btn" type="button">开始判断</button>
+              </div>
+
+              <p class="console-note">
+                优先尝试 OKX 实时报价，不可达时自动切换到备用来源，支持
+                <kbd>Cmd</kbd>/<kbd>Ctrl</kbd> + <kbd>Enter</kbd>
+              </p>
+            </div>
+          </aside>
+
+          <div class="workspace-main">
+            <div class="workspace-head">
+              <div>
+                <p class="eyebrow">结果面板</p>
+                <h2>实时结果</h2>
+                <p class="workspace-copy">基于路径、成本和目标风险生成本次裁决</p>
+              </div>
+              <div class="workspace-meta">
+                <span id="quote-provider">实时来源</span>
+                <span id="scenario-chain">Base · 8453</span>
+              </div>
+            </div>
+
+            <section class="intent-ribbon">
+              <span class="metric-label">当前意图</span>
+              <div id="scenario-intent" class="intent-text"></div>
+            </section>
+
+            <section class="summary-grid">
+              <article class="summary-card verdict-card" data-role="verdict">
+                <span class="metric-label">裁决</span>
+                <strong id="scenario-verdict"></strong>
+              </article>
+              <article class="summary-card">
+                <span class="metric-label">信心</span>
+                <strong id="scenario-confidence"></strong>
+              </article>
+              <article class="summary-card">
+                <span class="metric-label">建议仓位</span>
+                <strong id="scenario-size"></strong>
+              </article>
+              <article class="summary-card">
+                <span class="metric-label">预计到手</span>
+                <strong id="quote-receive">--</strong>
+              </article>
+            </section>
+
+            <section class="quote-ribbon">
+              <div class="quote-stat">
+                <span class="metric-label">综合成本</span>
+                <strong id="quote-cost">--</strong>
+              </div>
+              <div class="quote-stat">
+                <span class="metric-label">价格影响</span>
+                <strong id="quote-impact">--</strong>
+              </div>
+              <div class="quote-engine">
+                <span class="metric-label">报价引擎</span>
+                <strong id="quote-tool">报价服务</strong>
+                <p id="quote-note" class="quote-note"></p>
+              </div>
+            </section>
+
+            <div class="detail-grid">
+              <section class="detail-panel">
+                <div class="section-minihead">
+                  <span>证据条</span>
+                </div>
+                <div class="evidence-grid" id="evidence-grid"></div>
+              </section>
+
+              <section class="detail-panel">
+                <div class="section-minihead">
+                  <span>陪审团意见</span>
+                </div>
+                <div class="jury-grid" id="jury-grid"></div>
+              </section>
+            </div>
+
+            <div class="detail-grid lower-grid">
+              <section class="detail-panel route-panel">
+                <div class="section-minihead">
+                  <span>模拟执行建议</span>
+                </div>
+                <div id="scenario-route" class="route-copy"></div>
+              </section>
+
+              <section class="detail-panel">
+                <div class="section-minihead">
+                  <span>听证记录</span>
+                </div>
+                <div id="hearing-log-list" class="log-list"></div>
+              </section>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="surface-section faq-section reveal" id="faq">
+        <div class="section-head">
+          <p class="eyebrow">常见问题</p>
+          <h2>常见问题</h2>
+        </div>
+
+        <div class="faq-list">
+          <details open>
+            <summary>会自动下单吗？</summary>
+            <p>默认不会，当前只做实时报价和模拟裁决</p>
+          </details>
+
+          <details>
+            <summary>没有 OKX Key 能用吗？</summary>
+            <p>可以，会自动切换到备用实时来源</p>
+          </details>
+
+          <details>
+            <summary>裁决看什么？</summary>
+            <p>主要看路径、到手额、综合成本和目标风险</p>
+          </details>
+
+          <details>
+            <summary>适合什么场景？</summary>
+            <p>适合追价过滤、换仓、防守、分批建仓和获利落袋</p>
+          </details>
+
+          <details>
+            <summary>为什么要拆这么多层？</summary>
+            <p>因为能成交和值得成交不是一回事，拆开后更清楚，也更容易复查</p>
+          </details>
+        </div>
+      </section>
+    </main>
+
+    <script src="./app.js"></script>
+  </body>
+</html>
