@@ -64,8 +64,10 @@ const server = http.createServer((req, res) => {
   void handleRequest(req, res);
 });
 
-server.listen(PORT, "127.0.0.1", () => {
-  console.log(`Trade Jury running at http://127.0.0.1:${PORT}/index.html`);
+const HOST = process.env.HOST || "0.0.0.0";
+
+server.listen(PORT, HOST, () => {
+  console.log(`Trade Jury running at http://${HOST}:${PORT}/index.html`);
 });
 
 async function handleRequest(req, res) {
