@@ -1,0 +1,208 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Trade Jury | Product Overview</title>
+    <meta
+      name="description"
+      content="Trade Jury 是一个基于 OKX OnchainOS 的链上交易陪审团，先拿报价，再做判断，输出通过执行 / 条件通过 / 拒绝执行。"
+    />
+    <link rel="stylesheet" href="./overview.css" />
+  </head>
+  <body>
+    <div class="page-shell">
+      <header class="hero">
+        <p class="eyebrow">Product Overview</p>
+        <h1>Trade Jury</h1>
+        <p class="hero-copy">
+          先拿报价，再做判断。Trade Jury 不是直接替用户下单，而是在交易前先拉取真实路径、到手额和成本，
+          再由多角色 AI 陪审团给出 <strong>通过执行 / 条件通过 / 拒绝执行</strong> 的裁决。
+        </p>
+        <p class="section-note">
+          在线演示：<a href="https://trade-jury1.onrender.com" target="_blank" rel="noreferrer">trade-jury1.onrender.com</a>
+          · GitHub：<a href="https://github.com/doublekunkun0/trade-jury1" target="_blank" rel="noreferrer">trade-jury1</a>
+        </p>
+        <div class="hero-actions">
+          <a class="primary" href="./index.html">查看实时 Demo</a>
+          <a class="secondary" href="#architecture">查看架构</a>
+          <a class="secondary" href="#resources">查看资料</a>
+        </div>
+      </header>
+
+      <main>
+        <section class="section">
+          <div class="section-head">
+            <p class="section-kicker">Product Layer</p>
+            <h2>我们交付的是什么</h2>
+          </div>
+          <div class="signal-grid">
+            <article class="signal-card">
+              <span class="signal-label">OKX OnchainOS</span>
+              <p>market / trade / quote / route / wallet context</p>
+            </article>
+            <article class="signal-card hot">
+              <span class="signal-label">Trade Jury</span>
+              <p>quote-first / multi-judge / risk veto / execution verdict</p>
+            </article>
+            <article class="signal-card">
+              <span class="signal-label">Trader</span>
+              <p>不再只看 buy/sell 结论，而是先拿真实条件，再决定做不做</p>
+            </article>
+          </div>
+        </section>
+
+        <section class="section" id="architecture">
+          <div class="section-head">
+            <p class="section-kicker">Architecture</p>
+            <h2>总架构图</h2>
+          </div>
+          <div class="flow-rail">
+            <div class="flow-card">
+              <strong>User Intent</strong>
+              <span>一句自然语言交易意图</span>
+            </div>
+            <div class="flow-arrow"><span>quote request</span></div>
+            <div class="flow-card emphasis">
+              <strong>Trade Jury</strong>
+              <span>先报价，再裁决</span>
+            </div>
+            <div class="flow-arrow dual"><span>OKX OnchainOS</span></div>
+            <div class="flow-stack">
+              <div class="flow-card compact">
+                <strong>Market / Trade</strong>
+                <span>价格、滑点、路径、成本</span>
+              </div>
+              <div class="flow-card compact dark">
+                <strong>Jury Engine</strong>
+                <span>趋势 / 风险 / 执行 / 拥挤度</span>
+              </div>
+            </div>
+            <div class="flow-arrow"><span>guarded verdict</span></div>
+            <div class="flow-card">
+              <strong>Result</strong>
+              <span>通过执行 / 条件通过 / 拒绝执行</span>
+            </div>
+          </div>
+          <p class="section-note">
+            Trade Jury 不替代 OKX 的底层能力，而是在其之上增加“风险先于执行”的产品层。
+          </p>
+        </section>
+
+        <section class="section">
+          <div class="section-head">
+            <p class="section-kicker">Comparison</p>
+            <h2>为什么不是普通交易 Agent</h2>
+          </div>
+          <div class="compare-grid">
+            <article class="compare-card">
+              <p class="compare-title">普通交易 Agent</p>
+              <ul>
+                <li>更关注能不能成交</li>
+                <li>容易直接推进执行</li>
+                <li>解释不够充分</li>
+                <li>风险偏好适配弱</li>
+              </ul>
+              <div class="compare-outcome">
+                <strong>结果</strong>
+                <span>容易在不该做的时候做了</span>
+              </div>
+            </article>
+            <article class="compare-card accent">
+              <p class="compare-title">Trade Jury</p>
+              <ul>
+                <li>先给真实报价和路径</li>
+                <li>多法官交叉质询</li>
+                <li>Risk Judge 保留否决权</li>
+                <li>输出可执行且可解释的结论</li>
+              </ul>
+              <div class="compare-outcome">
+                <strong>结果</strong>
+                <span>不仅知道怎么做，更知道什么时候别做</span>
+              </div>
+            </article>
+          </div>
+        </section>
+
+        <section class="section">
+          <div class="section-head">
+            <p class="section-kicker">Live Scenarios</p>
+            <h2>最适合演示的三个场景</h2>
+          </div>
+          <div class="proof-grid">
+            <article class="proof-card">
+              <span class="proof-tag">Reject</span>
+              <p class="proof-value">追高 Meme</p>
+              <p class="proof-copy">系统会拒绝执行，证明它不是只会鼓励成交。</p>
+            </article>
+            <article class="proof-card">
+              <span class="proof-tag">Approve</span>
+              <p class="proof-value">ETH → USDC</p>
+              <p class="proof-copy">防守换仓场景下，系统会明确放行执行。</p>
+            </article>
+            <article class="proof-card">
+              <span class="proof-tag">Conditional</span>
+              <p class="proof-value">USDC → AERO</p>
+              <p class="proof-copy">允许试单和分批，避免一把梭。</p>
+            </article>
+            <article class="proof-card">
+              <span class="proof-tag">Exit</span>
+              <p class="proof-value">BRETT → USDC</p>
+              <p class="proof-copy">盈利后换仓离场，也要基于真实路径和成本判断。</p>
+            </article>
+          </div>
+        </section>
+
+        <section class="section">
+          <div class="section-head">
+            <p class="section-kicker">Core Value</p>
+            <h2>这个产品解决什么问题</h2>
+          </div>
+          <div class="command-grid">
+            <article class="command-card">
+              <p class="command-title">FOMO</p>
+              <code>追高时是否该被拦住</code>
+            </article>
+            <article class="command-card">
+              <p class="command-title">Execution</p>
+              <code>路径能成交 ≠ 值得成交</code>
+            </article>
+            <article class="command-card">
+              <p class="command-title">Risk Match</p>
+              <code>目标风险是否匹配用户偏好</code>
+            </article>
+            <article class="command-card">
+              <p class="command-title">Readable</p>
+              <code>证据 / 法官 / 建议仓位拆开展示</code>
+            </article>
+            <article class="command-card">
+              <p class="command-title">Quote-first</p>
+              <code>先报价，再裁决</code>
+            </article>
+            <article class="command-card">
+              <p class="command-title">Local-first</p>
+              <code>适合终端、本地脚本与自定义工作流</code>
+            </article>
+          </div>
+        </section>
+
+        <section class="section links-section" id="resources">
+          <div class="section-head">
+            <p class="section-kicker">Resources</p>
+            <h2>资料入口</h2>
+          </div>
+          <div class="link-list">
+            <a href="./index.html">实时 Demo</a>
+            <a href="./README.md">README</a>
+            <a href="./submission/PROJECT_BRIEF.md">Project Brief</a>
+            <a href="./submission/DEMO_SCRIPT.md">Demo Script</a>
+            <a href="./submission/SUBMISSION_ARTICLE.md">Submission Article</a>
+            <a href="./submission/X_THREAD.md">X Thread</a>
+            <a href="./submission/CHECKLIST.md">Checklist</a>
+            <a href="https://github.com/doublekunkun0/trade-jury1" target="_blank" rel="noreferrer">GitHub Repo</a>
+          </div>
+        </section>
+      </main>
+    </div>
+  </body>
+</html>
