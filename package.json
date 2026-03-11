@@ -1,0 +1,13 @@
+{
+  "name": "trade-jury",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Trade Jury demo for OKX AI hackathon",
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "dev": "node server.js",
+    "start": "node server.js"
+  }
+}
